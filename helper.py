@@ -1,3 +1,5 @@
+import datetime
+
 # dir struct
 
 TEST_DIR = 'tests'
@@ -11,8 +13,8 @@ OUTPUT_PRE = 'output'
 
 # functions
 def getRandom(n,start,end):
-  res = ()
   import random
+  if n == 1: return random.randint(start,end)
+  res = ()
   for i in range(n): res += (random.randint(start,end),)
-  print(res)
   return res
