@@ -2,7 +2,8 @@
 def isPrime(n):
   for i in range(2,n):
     if n%i==0: return False
-  return True
+  if n>1: return True
+  else: return False
 
 # Calculate Height function
 def calc_ht(h,c,n):
@@ -13,7 +14,7 @@ def calc_ht(h,c,n):
   return h
 
 # sample testcase
-print(calc_ht(10,1,100))
+print(calc_ht(10,1,10))
 print(calc_ht(666,69,234))
 print(calc_ht(498,20,400))
 
