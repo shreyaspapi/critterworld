@@ -1,9 +1,6 @@
 # 01_legend-has-it
-def isPrime(n):
-  for i in range(2,n):
-    if n%i==0: return False
-  if n>1: return True
-  else: return False
+import os
+from helper import *
 
 # Calculate Height function
 def calc_ht(h,c,n):
@@ -18,16 +15,14 @@ print(calc_ht(10,1,10))
 print(calc_ht(666,69,234))
 print(calc_ht(498,20,400))
 
-import os
-from helper import *
-
 fnum = str(input("Enter filenum: "))
 fin = open(os.path.join(os.path.join(os.path.join(TEST_DIR,'01'),INPUT_DIR),INPUT_PRE+fnum+FILE_EXT),'w')
 fout = open(os.path.join(os.path.join(os.path.join(TEST_DIR,'01'),OUTPUT_DIR),OUTPUT_PRE+fnum+FILE_EXT),'w')
 
-# Build test cases
 t = int(input("Test cases: "))
 fin.write(str(t)+'\n')
+
+# Build test cases
 START = datetime.datetime.now()
 for i in range(t):
   h,c = getRandom(2,1,10**3)
