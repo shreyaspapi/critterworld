@@ -1,4 +1,6 @@
 import datetime
+import sys
+sys.setrecursionlimit(2999)
 
 # dir struct
 
@@ -28,3 +30,11 @@ def isPrime(n):
     if n%i==0: return False
   if n>1: return True
   else: return False
+
+def numDigits(n,count=0):
+  if n>0: return numDigits(n//10,count+1)
+  return count
+
+def fact(n,p=1):
+  if n==1: return p
+  return fact(n-1,p*n)
