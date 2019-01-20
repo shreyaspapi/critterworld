@@ -1,6 +1,6 @@
 import datetime
 import sys
-sys.setrecursionlimit(2999)
+# sys.setrecursionlimit(2999)
 
 # dir struct
 
@@ -18,13 +18,23 @@ def getRandom(n,start,end):
   import random
   if n == 1: return random.randint(start,end)
   res = ()
-  for i in range(n): res += (random.randint(start,end),)
+  for _ in range(n): res += (random.randint(start,end),)
   return res
 
 def gcd(a,b):
   if b==0: return a
   return gcd(b,a%b)
-  
+
+def xgcd(a,b):
+  prevx,x = 1,0
+  prevy,y = 0,1
+  while b:
+    q = a//b
+    x,prevx = prevx-q*x,x
+    y,prevy = prevy-q*y,y
+    a,b = b,a%b
+  return a,prevx,prevy
+
 def isPrime(n):
   for i in range(2,n):
     if n%i==0: return False
@@ -38,3 +48,12 @@ def numDigits(n,count=0):
 def fact(n,p=1):
   if n==1: return p
   return fact(n-1,p*n)
+
+def getRandomPrime(n,start,end):
+  res = ()
+  for _ in range(n):
+    t = getRandom(1,start,end)
+    while not isPrime(t) and t not in res: t = getRandom(1,start,end)
+    if n==1: return t
+    res += (t,)
+  return res

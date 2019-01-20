@@ -2,6 +2,11 @@
 import os
 from helper import *
 
+# Solution
+def compute_d(phi,e):
+  g,x,_ = xgcd(e,phi)
+  return x%phi
+
 # Sample test case
 # 7 11 13 -> 37 
 # 61 53 17 -> 2753
@@ -16,12 +21,12 @@ fin.write(str(t)+'\n')
 # Build test cases
 START = datetime.datetime.now()
 for i in range(t):
-  # generate prime p and q
-  # choose e
-  # calculate d
-  res = calc_private(p,q,e)
+  p,q = getRandomPrime(2,1,10**6)
+  phi = (p-1)*(q-1)
+  e = getRandomPrime(1,1,min(phi,10**6))
+  d = compute_d(phi,e)
   line = str(p) + ' ' +  str(q) + ' ' + str(e)
-  out = str(res)
+  out = str(d) + ' ' + str(p*q)
   if i+1<t:
     line += '\n'
     out += '\n'
