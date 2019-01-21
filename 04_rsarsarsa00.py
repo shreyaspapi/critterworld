@@ -7,9 +7,9 @@ def compute_d(phi,e):
   g,x,_ = xgcd(e,phi)
   return x%phi
 
-# Sample test case
-# 7 11 13 -> 37 
-# 61 53 17 -> 2753
+# Sample case
+print(compute_d(60,13))
+print(compute_d(3120,17))
 
 fnum = str(input("Enter filenum: "))
 fin = open(os.path.join(os.path.join(os.path.join(TEST_DIR,'04'),INPUT_DIR),INPUT_PRE+fnum+FILE_EXT),'w')
