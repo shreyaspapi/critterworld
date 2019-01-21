@@ -62,7 +62,7 @@ for i in range(t):
 
   if alph_list != dec_list: raise Exception('FALSE NIBBA!')
 
-  line = ''
+  line = str(l) + '\n'
   for x in enc_list: line+=str(x)+' '
   line += '\n' + str(p) + ' ' +  str(n) + ' ' + str(e)
   out = plaintext
@@ -73,15 +73,15 @@ for i in range(t):
   fout.write(out)
 
 #Sample cases
-sample = ['MYNAMEIS','WHAT','ATTACKATDAWN']
-P,Q,E,D = (7,11,13,37)
-for s in sample:
-  lst = [ord(x)-64 for x in s]
-  enc_list = encrypt_list(lst,E,P*Q)
-  dec_list = decrypt_list(enc_list,D,P*Q)
-  dec = ''
-  for x in dec_list: dec+=chr(64+x)
-  print(enc_list)
-  print(dec)
+# sample = ['MYNAMEIS','WHAT','ATTACKATDAWN']
+# P,Q,E,D = (7,11,13,37)
+# for s in sample:
+#   lst = [ord(x)-64 for x in s]
+#   enc_list = encrypt_list(lst,E,P*Q)
+#   dec_list = decrypt_list(enc_list,D,P*Q)
+#   dec = ''
+#   for x in dec_list: dec+=chr(64+x)
+#   print(enc_list)
+#   print(dec)
 
 print(datetime.datetime.now()-START)
