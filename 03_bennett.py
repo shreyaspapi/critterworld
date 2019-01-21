@@ -1,10 +1,11 @@
 # 03_bennett
 import os
-from helper import *
+import helper
+from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
 
 # Solution
 def isBennettPair(n,k):
-  f = (fact(n)) % (10**k)
+  f = (helper.fact(n)) % (10**k)
   sum = 0
   while f>0:
     if f%10 == 0: f/=10
@@ -21,8 +22,8 @@ fin.write(str(t)+'\n')
 # Build test cases
 START = datetime.datetime.now()
 for i in range(t):
-  n = getRandom(1,1,100)
-  k = getRandom(1,1,numDigits(fact(n)))
+  n = helper.getRandom(1,1,100)
+  k = helper.getRandom(1,1,helper.numDigits(helper.fact(n)))
   res = isBennettPair(n,k)
   line = str(n) + ' ' +  str(k)
   out = str(res)

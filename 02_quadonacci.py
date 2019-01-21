@@ -1,6 +1,7 @@
 # 02_quadonacci
 import os
 from helper import *
+from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
 
 # Quadonacci generator (recursion depth: 1000)
 def quad(a,b,c,d,n):
@@ -18,7 +19,7 @@ def quad(a,b,c,d,n):
 # Sample test case
 print(quad(1,1,1,1,9))
 print(quad(2,4,6,10,10))
-print(quad(53,59,67,71,2100))
+print(quad(53,59,67,71,2100)) # 2100 violates constraints. DO NOT CHANGE
 
 fnum = str(input("Enter filenum: "))
 fin = open(os.path.join(os.path.join(os.path.join(TEST_DIR,'02'),INPUT_DIR),INPUT_PRE+fnum+FILE_EXT),'w')
@@ -30,7 +31,7 @@ fin.write(str(t)+'\n')
 # Build test cases
 START = datetime.datetime.now()
 for i in range(t):
-  a,b,c,d,n = getRandom(5,1,1000)
+  a,b,c,d,n = helper.getRandom(5,1,1000)
   res = quad(a,b,c,d,n)
   line = str(a) + ' ' +  str(b) + ' ' + str(c) + ' ' + str(d) + ' ' + str(n)
   out = str(res)

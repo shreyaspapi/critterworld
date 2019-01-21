@@ -1,11 +1,12 @@
 # 01_legend-has-it
 import os
-from helper import *
+import helper
+from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
 
 # Calculate Height function
 def calc_ht(h,c,n):
   for i in range(c,n+c):
-    if isPrime(i): continue
+    if helper.isPrime(i): continue
     if i%2==0: h*=4
     h+=20*i
   return h
@@ -25,8 +26,8 @@ fin.write(str(t)+'\n')
 # Build test cases
 START = datetime.datetime.now()
 for i in range(t):
-  h,c = getRandom(2,1,10**3)
-  n = getRandom(1,1,10**3)
+  h,c = helper.getRandom(2,1,10**3)
+  n = helper.getRandom(1,1,10**3)
   res = calc_ht(h,c,n)
   line = str(h) + ' ' +  str(c) + ' ' + str(n)
   out = str(res)

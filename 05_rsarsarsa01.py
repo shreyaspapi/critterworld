@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 # 05_rSaRsArSa01
 import os
-from helper import *
+import helper
+from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
 
 def modpow_list(lst,e,n):
   return [pow(x,e,n) for x in lst]
@@ -15,7 +16,7 @@ for sample in SAMPLE:
   decrypted = modpow_list(encrypted,D,P*Q)
   print(len(sample))
   print(''.join(str(x)+' ' for x in encrypted).strip())
-  print(''.join(str(64+x) for x in decrypted))
+  print(''.join(chr(64+x) for x in decrypted))
 
 fnum = str(input("Enter filenum: "))
 fin = open(os.path.join(os.path.join(os.path.join(TEST_DIR,'05'),INPUT_DIR),INPUT_PRE+fnum+FILE_EXT),'w')
@@ -28,15 +29,15 @@ START = datetime.datetime.now()
 for i in range(t):
   # make keys
   while True:
-    p,q = getRandomPrime(2,1,10**3)
+    p,q = helper.getRandomPrime(2,1,10**3)
     n = p*q
     phi = (p-1)*(q-1)
-    e = getRandomPrime(1,2,min(phi,10**3))
-    g,d,_ = xgcd(e,phi)
+    e = helper.getRandomPrime(1,2,min(phi,10**3))
+    g,d,_ = helper.xgcd(e,phi)
     d %= phi
     if p!=q and g==1: break
-  l = getRandom(1,2,10**2)
-  alphabets = list(getRandom(l,1,26))
+  l = helper.getRandom(1,2,10**2)
+  alphabets = list(helper.getRandom(l,1,26))
   encrypted = modpow_list(alph_list,e,n)
   decrypted = modpow_list(enc_list,d,n)
   plaintext = ''.join(chr(64+x) for x in decrypted)
