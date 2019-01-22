@@ -6,7 +6,6 @@ from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_
 # Solution
 def isBennettPair(n,k):
   f = (helper.fact(n)) % (10**k)
-  sum = 0
   while f>0:
     if f%10 == 0: f/=10
     else: return 'Y'
