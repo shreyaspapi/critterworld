@@ -1,0 +1,9 @@
+All files for a certain week are stored in the respective folder. The zips within ./src/tests are the tests uploaded on hackerrank for the contest.
+
+Please start with copying the codes from the templates and then building solution within it. This is to make life easier while building test cases. Also, make sure to number the problem statements. As for version control, please switch to a branch for the week [eg, branch week04 for the fourth week] and commit accordingly. Do *NOT* work on master.
+
+The plagiarism checker is in the checker folder. It is based on MOSS [http://theory.stanford.edu/~aiken/moss/] and built in python. You need to download the solutions (scraper.py also located in ./checker) and feed that into the plagiarism checker.
+
+Here are the contest links:
+- Week03: https://www.hackerrank.com/week-3-cse212-1718
+- Week04: https://www.hackerrank.com/week-4-cse212-1718
