@@ -1,7 +1,8 @@
 # 02_quadonacci
 import os
-from helper import *
-from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
+import datetime
+import helper
+from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT, datetime
 
 # Quadonacci generator (recursion depth: 1000)
 def quad(a,b,c,d,n):
