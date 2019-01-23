@@ -15,12 +15,14 @@ SAMPLE = []
 # Build tests
 fnum = input("Enter testfile num: ")
 t = int(input("Test cases: "))
+TIME = []
 for i in range(t):
   # Inputs
   # Result
   START = datetime.datetime.now()
   res = solution()
   END = datetime.datetime.now()
+  TIME.append(START-END)
   # File write
   input_line = ''
   output_line = ''
@@ -31,4 +33,4 @@ for i in range(t):
   fout = open(os.path.join(os.path.join(os.path.join(TEST_DIR,PROBLEM_NUM),OUTPUT_DIR),OUTPUT_PRE+fnum+FILE_EXT),'w')
   fin.write(input_line)
   fout.write(output_line)
-print("Time limit:",END-START)
+print("Time:",sum(TIME))
