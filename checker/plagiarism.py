@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Check for perl
 # Get perl bin
 # run perl mossnet.pl [-l] [-b] filename
