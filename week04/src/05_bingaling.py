@@ -4,10 +4,10 @@ import helper
 from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
 PROBLEM_NUM = '' # Change according to problem number in contest
 
-def firstLast(allPlates):
+def first_last(all_plates):
   first = []
   last = []
-  for name in allPlates:
+  for name in all_plates:
     first.append(name[0])
     last.append(name[-1])
   return (first, last)
@@ -15,19 +15,22 @@ def firstLast(allPlates):
 # Solution
 def solution(listOfPlates):
   first, last = firstLast(listOfPlates)
+  last_temp = last[:]
+  ans = []
   flag = 0
   for i in range(len(first)):
     temp = 0
     for j in range(len(last)):
       if last[i] == first[j]:
-          first[j] == ""
+          first[j] == "{}{}".format(i j)
           temp = 1
           break
     if temp == 0:
       flag += 1
   if flag < 2:
-    return "Y"
-  return "N"
+    for i in first:
+      if 
+  return -1
 
 # Sample cases
 SAMPLE = []
