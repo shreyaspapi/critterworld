@@ -2,7 +2,7 @@ import os
 import datetime
 import helper
 from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
-PROBLEM_NUM = '' # Change according to problem number in contest
+PROBLEM_NUM = '02' # Change according to problem number in contest
 
 def subStrings(string):
   allSubStrings = []
