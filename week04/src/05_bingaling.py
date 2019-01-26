@@ -33,6 +33,8 @@ def solution(listOfPlates):
       return -1
   return ans
 
+print(solution(["abhajbh","hhbhuc","chbhueb","buhebu","uhcksbjnd","dbjskj"]))
+
 # # Sample cases
 # SAMPLE = []
 
