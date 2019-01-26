@@ -16,7 +16,7 @@ def solution(string, start, end):
   return len(set(subStrings(string[start:end+1])))
 
 
-Sample cases
+# Sample cases
 SAMPLE = []
 
 
