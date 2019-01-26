@@ -39,7 +39,11 @@ def solution(listOfPlates):
 
 # # Build tests
 # fnum = input("Enter testfile num: ")
+# fin = open(os.path.join(os.path.join(os.path.join(TEST_DIR,PROBLEM_NUM),INPUT_DIR),INPUT_PRE+fnum+FILE_EXT),'w')
+# fout = open(os.path.join(os.path.join(os.path.join(TEST_DIR,PROBLEM_NUM),OUTPUT_DIR),OUTPUT_PRE+fnum+FILE_EXT),'w')
 # t = int(input("Test cases: "))
+# fin.write(str(t)+'\n')
+
 # TIME = []
 # for i in range(t):
 #   # Inputs
@@ -47,15 +51,13 @@ def solution(listOfPlates):
 #   START = datetime.datetime.now()
 #   res = solution()
 #   END = datetime.datetime.now()
-#   TIME.append(START-END)
+#   TIME.append(END-START)
 #   # File write
 #   input_line = ''
 #   output_line = ''
 #   if i+1<t:
 #     input_line += '\n'
 #     output_line += '\n'
-#   fin = open(os.path.join(os.path.join(os.path.join(TEST_DIR,PROBLEM_NUM),INPUT_DIR),INPUT_PRE+fnum+FILE_EXT),'w')
-#   fout = open(os.path.join(os.path.join(os.path.join(TEST_DIR,PROBLEM_NUM),OUTPUT_DIR),OUTPUT_PRE+fnum+FILE_EXT),'w')
 #   fin.write(input_line)
 #   fout.write(output_line)
-# print("Time:",sum(TIME))
+# print("Time:",sum(TIME,datetime.timedelta(0)))
