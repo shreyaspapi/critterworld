@@ -12,7 +12,9 @@ def encrypt(plaintext,n):
   return ciphertext
 
 # Sample cases
-SAMPLE = []
+SAMPLE = ['DO_NOT_WORRY_MY_LOVE_SOCIETY_BE_CRUEL_RISE_ABOVE_','ATTACK_AT_DAWN_WHEN_SLEEP']
+print(encrypt(SAMPLE[0],7))
+print(encrypt(SAMPLE[1],5))
 
 
 # Build tests
