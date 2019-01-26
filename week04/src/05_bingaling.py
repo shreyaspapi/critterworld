@@ -4,9 +4,30 @@ import helper
 from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
 PROBLEM_NUM = '' # Change according to problem number in contest
 
+def firstLast(allPlates):
+  first = []
+  last = []
+  for name in allPlates:
+    first.append(name[0])
+    last.append(name[-1])
+  return (first, last)
+
 # Solution
-def solution():
-  pass
+def solution(listOfPlates):
+  first, last = firstLast(listOfPlates)
+  flag = 0
+  for i in range(len(first)):
+    temp = 0
+    for j in range(len(last)):
+      if last[i] == first[j]:
+          first[j] == ""
+          temp = 1
+          break
+    if temp == 0:
+      flag += 1
+  if flag < 2:
+    return "Y"
+  return "N"
 
 # Sample cases
 SAMPLE = []
