@@ -26,7 +26,7 @@ for i in range(t):
   START = datetime.datetime.now()
   res = solution()
   END = datetime.datetime.now()
-  TIME.append(START-END)
+  TIME.append(END-START)
   # File write
   input_line = ''
   output_line = ''

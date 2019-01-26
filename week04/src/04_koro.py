@@ -2,7 +2,7 @@ import os
 import datetime
 import helper
 from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
-PROBLEM_NUM = '01' # Change according to problem number in contest
+PROBLEM_NUM = '04' # Change according to problem number in contest
 
 # Solution
 def num_palindromes(string,variations):
