@@ -10,15 +10,13 @@ def firstLast(allPlates):
   for name in allPlates:
     first.append(name[0])
     last.append(name[-1])
-  return [first, last]
+  return (first, last)
 
 print(firstLast(["shbvhjm","pfsuhygyufs","bygvsfytvesg","gujikgbhfsekjbt","phjbsfp"]))
 
 # Solution
 def solution(listOfPlates):
-  letters = firstLast(listOfPlates)
-  first = letters[0]
-  last = letters[1]
+  first, last = firstLast(listOfPlates)
 
   for i in range(len(first)):
     for j in range(len(last)):
