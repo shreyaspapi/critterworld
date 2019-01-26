@@ -17,12 +17,20 @@ print(firstLast(["shbvhjm","pfsuhygyufs","bygvsfytvesg","gujikgbhfsekjbt","phjbs
 # Solution
 def solution(listOfPlates):
   first, last = firstLast(listOfPlates)
-
+  flag = 0
   for i in range(len(first)):
+    temp = 0
     for j in range(len(last)):
-      if i != j:
-        if last[i] == first[j]:
-          first
+      if last[i] == first[j]:
+          first[j] == ""
+          temp = 1
+          break
+    if temp == 1:
+      flag += 1
+  if flag < 2:
+    return "Y"
+  return "N"
+    
 
 
 # # Sample cases
