@@ -4,11 +4,19 @@ import helper
 from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
 PROBLEM_NUM = '' # Change according to problem number in contest
 
-# Solution
-def solution():
-  pass
+def subStrings(string):
+  allSubStrings = []
+  for i in range(len(string)):
+    for j in range(i, len(string)):
+      allSubStrings.append(string[i:j+1])
+  return allSubStrings
 
-# Sample cases
+# Solution
+def solution(string, start, end):
+  return len(set(subStrings(string[start:end+1])))
+
+
+Sample cases
 SAMPLE = []
 
 
