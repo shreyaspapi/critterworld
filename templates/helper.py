@@ -17,7 +17,7 @@ OUTPUT_PRE = 'output'
 Get n random numbers in range [start,end]
 Returns single number (n==1) or a tuple (n>1)
 '''
-def getRandom(n,start,end):
+def get_random(n,start,end):
   import random
   if n == 1: return random.randint(start,end)
   res = ()

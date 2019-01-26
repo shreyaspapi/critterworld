@@ -18,13 +18,21 @@ t = int(input("Test cases: "))
 TIME = []
 for i in range(t):
   # Inputs
+  n = helper.get_random(1,1,100)
+  length = helper.get_random(1,1,n*n)
+  underscores = n*n - length
+  alphabets = list(helper.get_random(length,1,26))
+  string = [chr(64+x) for x in alphabets]
+  string += [chr(95)] * underscores
+  string = helper.shuffle_list(string)
+  message = ''.join(string)
   # Result
   START = datetime.datetime.now()
   res = solution()
   END = datetime.datetime.now()
   TIME.append(START-END)
   # File write
-  input_line = ''
+  input_line = str(n) + '\n' + message
   output_line = ''
   if i+1<t:
     input_line += '\n'
