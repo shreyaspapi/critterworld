@@ -11,11 +11,60 @@ import os
 import datetime
 import helper
 from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
+import re
+
 PROBLEM_NUM = '' # Change according to problem number in contest
 
+def ParseNestedParen(string, level):
+    """
+    Generate strings contained in nested (), indexing i = level
+    """
+    if len(re.findall("\(", string)) == len(re.findall("\)", string)):
+        LeftRightIndex = [x for x in zip(
+        [Left.start()+1 for Left in re.finditer('\(', string)], 
+        reversed([Right.start() for Right in re.finditer('\)', string)]))]
+
+    elif len(re.findall("\(", string)) > len(re.findall("\)", string)):
+        return ParseNestedParen(string + ')', level)
+
+    elif len(re.findall("\(", string)) < len(re.findall("\)", string)):
+        return ParseNestedParen('(' + string, level)
+
+    else:
+        return 'fail'
+
+    return [string[LeftRightIndex[level][0]:LeftRightIndex[level][1]]]
+
+alpha_list = list(string.ascii_uppercase)
+
+def alpha_add(word1, word2):
+  word1_temp = 0
+  word2_temp = 0
+  for i in word1:
+    word1_temp += alpha_list.index(i)
+    word1_temp %= 26
+  for j in word2:
+    word2_temp += alpha_list.index(j)
+    word2_temp %= 26
+  return alpha_list[(word1_temp + word2_temp) % 26]
+
+def alpha_sub(word1, word2):
+  word1_temp = 0
+  word2_temp = 0
+  for i in word1:
+    word1_temp -= alpha_list.index(i)
+    word1_temp %= 26
+  for j in word2:
+    word2_temp -= alpha_list.index(j)
+    word2_temp %= 26
+  return alpha_list[(word1_temp - word2_temp) % 26]
+
+def alpha_mul(word1, word2):
+  return word1 + word2
+
 # Solution
-def solution():
-  pass
+def solution(expression):
+  
 
 # Sample cases
 SAMPLE = []
