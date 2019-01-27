@@ -12,8 +12,8 @@ n: Number of words
 words: Words inscribed on tablets separated by a space
 
 ## Constraints ##
-1 ≤ t ≤ 10^5
-1 ≤ n ≤ 10^3
+1 ≤ t ≤ 50000
+1 ≤ n ≤ 100
 
 ## Output Format ##
 0 or the code
@@ -22,11 +22,11 @@ import os
 import datetime
 import helper
 from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
-PROBLEM_NUM = '' # Change according to problem number in contest
+PROBLEM_NUM = '05' # Change according to problem number in contest
 
 # Solution
 def make_chain(words):
-  first,last = helper.first_last(words)
+  first,last = helper.first_last(sorted(words)) # Sorting important as taking from first word below
   ans = [first[0],last[0]]
   first, last = first[1:], last[1:]
   for i in range(len(first)):
@@ -46,12 +46,16 @@ def make_chain(words):
 
 
 # Sample cases
+print()
 SAMPLE = [
   ['abhajbh','hhbhuc','chbhueb','buhebu','uhcksbjnd','dbjskj'],
+  ['asia','america','denmark','kangaroo','and','tango','oat','rat'],
   ['asia','america','denmark','kangaroo','and','tango','oat','tao','oscar','rat'],
 ]
+print('Sample Output')
 for arr in SAMPLE:
   print(make_chain(helper.shuffle_list(arr)))
+print()
 
 # Build tests
 fnum = input('Enter testfile num: ')
@@ -63,14 +67,17 @@ fin.write(str(t)+'\n')
 TIME = []
 for i in range(t):
   # Inputs
+  n = helper.get_random(1,2,100)
+  words = [helper.WORDS[x] for x in helper.get_unique_random(n,0,127141)]
   # Result
   START = datetime.datetime.now()
-  res = solution()
+  res = make_chain(words)
   END = datetime.datetime.now()
-  TIME.append(START-END)
+  TIME.append(END-START)
   # File write
-  input_line = ''
-  output_line = ''
+  if res!='0': print(i,res)
+  input_line = str(len(words)) + '\n' + ' '.join(word for word in words)
+  output_line = res
   if i+1<t:
     input_line += '\n'
     output_line += '\n'

@@ -11,8 +11,8 @@ n: number of tablets
 words: the words on the tablet separated by a single space
 
 ## Constraints ##
-1 ≤ t ≤ 10^5
-1 ≤ n ≤ 10^3
+1 ≤ t ≤ 5000
+1 ≤ n ≤ 1000
 
 ## Output Format ##
 'Y' or 'N'
