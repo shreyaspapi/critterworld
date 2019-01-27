@@ -21,59 +21,62 @@ import os
 import datetime
 import helper
 from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
-PROBLEM_NUM = '' # Change according to problem number in contest
-
-def firstLast(allPlates):
-  first = []
-  last = []
-  for name in allPlates:
-    first.append(name[0])
-    last.append(name[-1])
-  return (first, last)
+PROBLEM_NUM = '04' # Change according to problem number in contest
 
 # Solution
-def solution(listOfPlates):
-  first, last = firstLast(listOfPlates)
+def is_chain(words):
+  first, last = helper.first_last(words)
   flag = 0
   for i in range(len(first)):
-    temp = 0
+    start = True
     for j in range(len(last)):
+      if i==j: continue # Same word
       if last[i] == first[j]:
-          first[j] == ""
-          temp = 1
-          break
-    if temp == 0:
-      flag += 1
-  if flag < 2:
-    return "Y"
-  return "N"
+        first[j] = ''
+        start = False
+        break
+    if start: flag += 1
+    if flag>1: return 'N'
+  return 'Y'
 
 
 # Sample cases
-SAMPLE = []
+print()
+SAMPLE = [
+  ['abhajbh','hhbhuc','chbhueb','buhebu','uhcksbjnd','dbjskj'],
+  ['asia','america','and','denmark','kangaroo','oat','tango','tao'],
+]
+print('Sample Output')
+for arr in SAMPLE:
+  print(is_chain(helper.shuffle_list(arr)))
+print()
 
 
 # Build tests
-fnum = input("Enter testfile num: ")
+fnum = input('Enter testfile num: ')
 fin = open(os.path.join(os.path.join(os.path.join(TEST_DIR,PROBLEM_NUM),INPUT_DIR),INPUT_PRE+fnum+FILE_EXT),'w')
 fout = open(os.path.join(os.path.join(os.path.join(TEST_DIR,PROBLEM_NUM),OUTPUT_DIR),OUTPUT_PRE+fnum+FILE_EXT),'w')
-t = int(input("Test cases: "))
+t = int(input('Test cases: '))
 fin.write(str(t)+'\n')
 
 TIME = []
 for i in range(t):
   # Inputs
+  n = helper.get_random(1,2,1000)
+  words = [helper.WORDS[x] for x in helper.get_unique_random(n,0,127141)]
   # Result
   START = datetime.datetime.now()
-  res = solution()
+  res = is_chain(words)
   END = datetime.datetime.now()
   TIME.append(END-START)
   # File write
-  input_line = ''
-  output_line = ''
+  # print(i,res)
+  if res=='Y': print(i)
+  input_line = str(len(words)) + '\n' + ' '.join(word for word in words)
+  output_line = res
   if i+1<t:
     input_line += '\n'
     output_line += '\n'
   fin.write(input_line)
   fout.write(output_line)
-print("Time:",sum(TIME,datetime.timedelta(0)))
+print('Time:',sum(TIME,datetime.timedelta(0)))

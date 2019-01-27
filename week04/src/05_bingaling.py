@@ -25,17 +25,9 @@ from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_
 PROBLEM_NUM = '' # Change according to problem number in contest
 
 # Solution
-def first_last(words):
-  first = []
-  last = []
-  for word in words:
-    first.append(word[0])
-    last.append(word[-1])
-  return first,last
-
 def make_chain(words):
-  first,last = first_last(words)
-  ans = [first[0], last[0]]
+  first,last = helper.first_last(words)
+  ans = [first[0],last[0]]
   first, last = first[1:], last[1:]
   for i in range(len(first)):
     if ans[-1] in first:
@@ -49,7 +41,7 @@ def make_chain(words):
       ans.insert(0, first[index])
       first[index],last[index] = '',''
   for i in first:
-    if i != '': return '-1'
+    if i != '': return '0'
   return ''.join(x for x in sorted(list(set(ans))))
 
 
@@ -60,7 +52,6 @@ SAMPLE = [
 ]
 for arr in SAMPLE:
   print(make_chain(helper.shuffle_list(arr)))
-
 
 # Build tests
 fnum = input('Enter testfile num: ')
