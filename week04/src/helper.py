@@ -53,3 +53,5 @@ def get_unique_random(n,start,end):
 WORDS = []
 with open(os.path.join(HERE,'dictionary.txt')) as dict_file:
   for line in dict_file.readlines(): WORDS.append(line[:-1]) # Remove '\n'
+
+def reverse(string): return string[::-1]
