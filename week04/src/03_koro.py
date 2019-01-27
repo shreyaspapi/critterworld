@@ -1,3 +1,24 @@
+'''
+## Problem ##
+Koro Sensei's one year anniversary as a teacher was fast approaching. The students of his class liked him so much that they wanted to gift him something to commemorate the occasion. However, they could not come up with a good gift so they started focusing on what their sensei liked. One thing he was pleased by was symmetry. He was symmetrical, and so were his lessons. Another thing he liked were complex words made from the english alphabet.
+Nagisa then came up with a solution. He suggested that the class build a program so given a string **P** and an integer **n**, the program generates a palindrome with maximum *n additions* to P at the end. The program outputs **0** if a palindrome is not possible.
+(n additions at the end implies n characters can be appended to the end of P)
+
+## Input Format ##
+First line: t test cases
+Next 2t lines:
+String P
+Integer n
+
+## Constraints ##
+1 ≤ t ≤ 10^6
+1 ≤ |P| ≤ 1000
+1 ≤ n ≤ |P|/2
+
+## Output Format ##
+palindrome or 0
+'''
+
 import os
 import datetime
 import helper

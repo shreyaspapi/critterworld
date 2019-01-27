@@ -9,7 +9,6 @@ HERE = os.path.join(WEEK_PRE+WEEK_NUM,'src')
 WORDS = []
 with open(os.path.join(HERE,'dictionary.txt')) as dict_file:
   for line in dict_file.readlines(): WORDS.append(line[:-1]) # Remove '\n'
-print(WORDS)
 
 # dir struct
 TEST_DIR = os.path.join(HERE,'tests')

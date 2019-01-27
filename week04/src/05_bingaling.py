@@ -1,3 +1,12 @@
+'''
+## Problem Statement ##
+
+## Input Format ##
+
+## Constraints ##
+
+## Output Format ##
+'''
 import os
 import datetime
 import helper
@@ -39,7 +48,7 @@ SAMPLE = [
   ['asia','america','denmark','kangaroo','and','tango','oat','tao','oscar','rat'],
 ]
 for arr in SAMPLE:
-  print(solution(helper.shuffle_list(arr)))
+  print(make_chain(helper.shuffle_list(arr)))
 
 
 # Build tests
