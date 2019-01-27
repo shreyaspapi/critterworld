@@ -13,8 +13,8 @@ String s
 start end
 
 ## Constraints ##
-1 ≤ t ≤ 10^5
-1 ≤ |s| ≤ 10^3
+1 ≤ t ≤ 25000
+1 ≤ |s| ≤ 100
 1 ≤ start ≤ end ≤ |s|
 
 ## Output Format ##
@@ -26,20 +26,28 @@ import helper
 from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
 PROBLEM_NUM = '02' # Change according to problem number in contest
 
-def subStrings(string):
-  allSubStrings = []
-  for i in range(len(string)):
-    for j in range(i, len(string)):
-      allSubStrings.append(string[i:j+1])
-  return allSubStrings
-
 # Solution
-def solution(string, start, end):
-  return len(set(subStrings(string[start:end+1])))
+def distinct_substrings(string, start, end):
+  sub = string[start:end+1]
+  subs = []
+  for i in range(len(sub)):
+    for j in range(i, len(sub)):
+      subs.append(sub[i:j+1])
+  return len(set(subs))
 
 
 # Sample cases
-SAMPLE = []
+print()
+SAMPLE = [
+  {'string': 'aabb', 'start': 1, 'end': 3},
+  {'string': 'aabbcc', 'start': 2, 'end': 5},
+  {'string': 'vwznubfitkdexrqqmedtycnfk', 'start': 12, 'end': 17},
+  {'string': 'nlovipenxsdekjhpumufpdxqmhppsenky', 'start': 16, 'end': 25},
+]
+print('Sample Output:')
+for sample in SAMPLE:
+  print(distinct_substrings(sample['string'],sample['start'],sample['end']))
+print()
 
 
 # Build tests
@@ -52,14 +60,19 @@ fin.write(str(t)+'\n')
 TIME = []
 for i in range(t):
   # Inputs
+  n = helper.get_random(1,2,100)
+  string = ''.join(chr(96+x) for x in helper.get_random(n,1,26))
+  start = helper.get_random(1,0,n-1)
+  end = helper.get_random(1,start,n-1)
   # Result
   START = datetime.datetime.now()
-  res = solution()
+  res = distinct_substrings(string,start,end)
   END = datetime.datetime.now()
   TIME.append(END-START)
   # File write
-  input_line = ''
-  output_line = ''
+  print(i,res)
+  input_line = string + '\n' + str(start) + ' ' + str(end)
+  output_line = str(res)
   if i+1<t:
     input_line += '\n'
     output_line += '\n'
