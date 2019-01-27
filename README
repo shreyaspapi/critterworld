@@ -1,8 +1,72 @@
-All files for a certain week are stored in the respective folder. The zips within ./src/tests are the tests uploaded on hackerrank for the contest.
+General Guidelines:
+- All files for a certain week are stored in the respective folder.
+- The zips within ./src/tests are the tests uploaded on hackerrank for the contest.
+- Please start with copying the codes from the templates and then building solution within it. This is to make life easier while building test cases. 
+- Also, make sure to number the problem statements to reflect the order in which they appear in the contest. The problems may be numbered later
+- As for version control, please switch to a branch for the week [eg, branch week04 for the fourth week] and commit accordingly. 
 
-Please start with copying the codes from the templates and then building solution within it. This is to make life easier while building test cases. Also, make sure to number the problem statements. As for version control, please switch to a branch for the week [eg, branch week04 for the fourth week] and commit accordingly. Do *NOT* work on master.
+Do *NOT* work on master.
 
-The plagiarism checker is in the checker folder. It is based on MOSS [http://theory.stanford.edu/~aiken/moss/] and built in python. You need to download the solutions (scraper.py also located in ./checker) and feed that into the plagiarism checker.
+- The plagiarism checker is in the checker folder. It is based on MOSS [http://theory.stanford.edu/~aiken/moss/] and built in python. You need to download the solutions (scraper.py also located in ./checker) and feed that into the plagiarism checker. 
+  - It is still under construction. Will post usage instructions soon.
+
+Tentative Weekly Schedule:
+Week01 - Intro
+Week02 - Hackerrank platform
+Week03 - Recursion
+Week04 - Strings
+Week05 - Number Theory [and bit manipulation]
+Week06 - Arrays and Matrices
+Week07 - Midterm
+Week08 - Break [Release of problems for fun or extra credit]
+Week09 - Trees
+Week10 - Intro to graphs
+Week11 - Break [Release of problems for fun or extra credit]
+Week12 - Graph theory
+Week13 - Shortest Path Algorithms
+Week14 - Greedy Algorithms
+Week15 - Dynammic Programming
+Week16 - Recap and Futures
+Week17 - Finish [Release of problems for fun]
+
+Weekly Timeline
+Mon, Tue, Wed - Problem statements created and selected for next week's contest
+Thu, Fri      - Testing of the statements done by course staff and final adjustments made
+Sat           - Solution file and handout file for the following week created
+Sun           - Handout uploaded online for students to review before contest
+(next) Sat    - Solution file uploaded after end of contest
+
+Contest Guidelines:
+- Should have a minimum of 5 problems
+- Some problems should build from the ones before it
+  - For example, RSA in week03 and archaeology in week04
+- Grading for the week is roughly on the following criteria
+  - 0.5 for 20% score
+  - 1.0 for 50% score
+  - Solving all easy and some medium should earn the students full marks for the week
+- Contest to be open from Monday 8am to Saturday 5pm
+- Leaderboard rules to be finalized
+
+Problem Statement Guidelines:
+- Create problems on hackerrank/administration/challenges
+  - Add the following people as moderators to the challenges
+    - Gaurav_Singal
+    - pa5795
+- Try to incorporate a story into the problem to generate interest.
+- Try to make constraints as large as possible
+- Every problem should have 5 test cases
+  - Score increasing from 10 - 50
+  - Time increasing from <1s - ~5s [python]
+  - *00.txt should contain sample cases (explanation to be given on hackerrank)
+    - Sample tests have no weightage
+
+Solution File Guidelines:
+- Should include the problem statement, input and output format, and constraints
+- Should also include motivation behind question and source links if any
+- Should decribe the algorithm used to build and check tests
+  - Include code snippet in Python as well
+  - Include the time complexity and whether the problem can be solved better or more efficiently
+- Should include statistics of the week for the contest
 
 Here are the contest links:
 - Week03: https://www.hackerrank.com/week-3-cse212-1718
