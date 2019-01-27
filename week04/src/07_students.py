@@ -14,7 +14,7 @@ from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_
 PROBLEM_NUM = '' # Change according to problem number in contest
 
 def position_finder(first, second, array): 
-  if array.index(first) < array.second(second): return True
+  if array.index(first) < array.index(second): return True
   return False
 
 
@@ -33,8 +33,9 @@ def solution(submitted_answer, correct_answer):
   return max(ans)
 
 # Sample cases
-SAMPLE = []
-
+SAMPLE1 = ['Blockade of Naboo', 'Battle of Geonosis', 'Battle of Yavin', 'Battle of Hoth', 'Battle of Endor']
+SAMPLE2 = ['Battle of Geonosis', 'Battle of Yavin', 'Battle of Hoth', 'Battle of Endor', 'Blockade of Naboo']
+print(solution(SAMPLE2, SAMPLE1))
 
 
 # # Build tests
