@@ -103,6 +103,7 @@ def solution(expression):
     temp_exp = temp_exp.replace(string_to_work_on, ans)
 
     depth -= 1
+  return temp_exp
 
 
 # Sample cases
