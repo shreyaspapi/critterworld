@@ -27,23 +27,20 @@ import helper
 from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
 PROBLEM_NUM = '03' # Change according to problem number in contest
 
-# Solution
-def is_palindrome(string):
-  for i in range(len(string)//2):
-    if string[-(i+1)] != string[i]: return False
-  return True
+def rev(s): return s[::-1]
 
-# HELPP
-# def make_palindrome(string,additions):
-#   length,variations = len(string),0
-#   for i in range(length):
-#     if string[-(i+1)] == string[i]: continue
-#   palindrome = list(string)
-#   for i in range(variations):
-#     palindrome[-(i+1)] = palindrome[i]
-#     string = ''.join(x for x in palindrome)
-#     if is_palindrome(string): return string
-#   return '-1'
+def pal(s): return s==rev(s)
+
+def mpal(s):
+  for i in range(0,len(s)):
+    if pal(s[i:]): return s+rev(s[:i])
+
+# Solution- String p and integer n
+def solution(p, n):
+  palin = mpal(p)
+  if len(palin) <= len(p) + n:
+    return palin
+  return 0
 
 # Sample cases
 SAMPLE = []
