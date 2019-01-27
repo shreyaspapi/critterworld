@@ -1,8 +1,10 @@
 '''
 ## Problem ##
-Koro Sensei's one year anniversary as a teacher was fast approaching. The students of his class liked him so much that they wanted to gift him something to commemorate the occasion. However, they could not come up with a good gift so they started focusing on what their sensei liked. One thing he was pleased by was symmetry. He was symmetrical, and so were his lessons. Another thing he liked were complex words made from the english alphabet.
-Nagisa then came up with a solution. He suggested that the class build a program so given a string **P** and an integer **n**, the program generates a palindrome with maximum *n additions* to P at the end. The program outputs **0** if a palindrome is not possible.
-(n additions at the end implies n characters can be appended to the end of P)
+Koro Sensei's one year anniversary as a teacher was fast approaching. The students of his class liked him so much that they wanted to gift him something to commemorate the occasion. 
+However, they could not come up with a good gift so they started focusing on what their sensei liked. One thing he was pleased by was symmetry. 
+He was symmetrical, and so were his lessons. Another thing he liked were complex words made from the english alphabet.
+Nagisa then came up with a solution. He suggested that the class build a program so given a string **P** and an integer **n**, the program generates a palindrome with maximum *n additions* to P at the end. 
+The program outputs **0** if a palindrome is not possible. (n additions at the end implies n characters can be appended to the end of P)
 
 ## Input Format ##
 First line: t test cases
@@ -45,8 +47,6 @@ def is_palindrome(string):
 
 # Sample cases
 SAMPLE = []
-
-
 # Build tests
 fnum = input("Enter testfile num: ")
 fin = open(os.path.join(os.path.join(os.path.join(TEST_DIR,PROBLEM_NUM),INPUT_DIR),INPUT_PRE+fnum+FILE_EXT),'w')
