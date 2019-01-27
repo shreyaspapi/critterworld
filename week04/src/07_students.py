@@ -33,9 +33,9 @@ def solution(submitted_answer, correct_answer):
   return max(ans)
 
 # Sample cases
-SAMPLE1 = ['Blockade of Naboo', 'Battle of Geonosis', 'Battle of Yavin', 'Battle of Hoth', 'Battle of Endor']
-SAMPLE2 = ['Battle of Geonosis', 'Battle of Yavin', 'Battle of Hoth', 'Battle of Endor', 'Blockade of Naboo']
-print(solution(SAMPLE2, SAMPLE1))
+SAMPLE1 = ['Battle of Geonosis', 'Battle of Yavin', 'Battle of Hoth', 'Blockade of Naboo', 'Battle of Endor']
+SAMPLE2 = ['Blockade of Naboo', 'Battle of Geonosis', 'Battle of Yavin', 'Battle of Hoth', 'Battle of Endor']
+print(solution(SAMPLE1, SAMPLE2))
 
 
 # # Build tests
