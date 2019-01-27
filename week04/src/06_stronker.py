@@ -37,18 +37,10 @@ def ParseNestedParen(string, level):
 
 alpha_list = list(string.ascii_uppercase)
 
-def alpha_add(word1, word2):
-  word1_temp = 0
-  word2_temp = 0
-  for i in word1:
-    word1_temp += alpha_list.index(i)
-    word1_temp %= 26
-  for j in word2:
-    word2_temp += alpha_list.index(j)
-    word2_temp %= 26
-  return alpha_list[(word1_temp + word2_temp) % 26]
+def add(word1, word2):
+  return word1+word2
 
-def alpha_sub(word1, word2):
+def sub(word1, word2):
   word1_temp = 0
   word2_temp = 0
   for i in word1:
@@ -59,12 +51,40 @@ def alpha_sub(word1, word2):
     word2_temp %= 26
   return alpha_list[(word1_temp - word2_temp) % 26]
 
-def alpha_mul(word1, word2):
-  return word1 + word2
+def mul(word1, word2):
+  return word1 * alpha_list.index(word2)
+
+def find_depth(exp):
+  num = 0
+  while ParseNestedParen(exp, num) != "Fail":
+    num += 1
+  return num
+
+def get_string(string, operand):
+  pos = string.find(operand)
+  start = pos
+  end = pos
+  while (string[start] != "+") or (string[start] != "-") or (start != 0):
+    start -= 1
+  while (string[end] != "+") or (string[end] != "-") or (end != len(string)) or (string[end] != "*"):
+    end += 1
+  return (start, end)
+
+def do_operation(string, operand):
+  if operand == "+":
+    return add(string[:string.find("+")], string[string.find("+"):])
 
 # Solution
 def solution(expression):
-  
+  temp_exp = expression[:]
+  depth = find_depth(expression)
+  while depth:
+    string_to_work_on = ParseNestedParen(temp_exp, depth)
+    while "*" in string_to_work_on:
+      start, end = get_string(string_to_work_on, "*")
+
+    depth -= 1
+
 
 # Sample cases
 SAMPLE = []
