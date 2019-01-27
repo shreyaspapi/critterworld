@@ -71,8 +71,13 @@ def get_string(string, operand):
   return (start, end)
 
 def do_operation(string, operand):
+  word1, word2 = string[:string.find("+")], string[string.find("+"):]
   if operand == "+":
-    return add(string[:string.find("+")], string[string.find("+"):])
+    return add(word1, word2)
+  elif operand == "-":
+    return sub(word1, word2)
+  else:
+    return mul(word1, word2)
 
 # Solution
 def solution(expression):
@@ -80,8 +85,22 @@ def solution(expression):
   depth = find_depth(expression)
   while depth:
     string_to_work_on = ParseNestedParen(temp_exp, depth)
+    ans = string_to_work_on
     while "*" in string_to_work_on:
       start, end = get_string(string_to_work_on, "*")
+      slice_ans = do_operation(string_to_work_on[start : end], "*")
+      ans = string_to_work_on.replace(string_to_work_on[start:end], slice_ans)
+    while "-" in string_to_work_on:
+      start, end = get_string(string_to_work_on, "-")
+      slice_ans = do_operation(string_to_work_on[start : end], "-")
+      ans = string_to_work_on.replace(string_to_work_on[start:end], slice_ans)
+    while "+" in string_to_work_on:
+      start, end = get_string(string_to_work_on, "+")
+      slice_ans = do_operation(string_to_work_on[start : end], "+")
+      ans = string_to_work_on.replace(string_to_work_on[start:end], slice_ans)
+    
+    string_to_work_on = "(" + string_to_work_on + ")"
+    temp_exp = temp_exp.replace(string_to_work_on, ans)
 
     depth -= 1
 
