@@ -13,9 +13,24 @@ import helper
 from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
 PROBLEM_NUM = '' # Change according to problem number in contest
 
+def position_finder(first, second, array): 
+  if array.index(first) < array.second(second): return True
+  return False
+
+
 # Solution
-def solution():
-  pass
+def solution(submitted_answer, correct_answer):
+  length = len(submitted_answer)
+  ans = []
+  for i in range(length):
+    flag = 0
+    current = submitted_answer[i]
+    for j in range(i+1, length):
+      if position_finder(current, submitted_answer[j], correct_answer):
+        flag += 1
+        current = submitted_answer[j]
+    ans.append(flag)
+  return max(ans)
 
 # Sample cases
 SAMPLE = []
