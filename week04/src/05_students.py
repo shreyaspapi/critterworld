@@ -35,7 +35,10 @@ def solution(submitted_answer, correct_answer):
 # Sample cases
 SAMPLE1 = ['Battle of Geonosis', 'Battle of Yavin', 'Battle of Hoth', 'Blockade of Naboo', 'Battle of Endor']
 SAMPLE2 = ['Blockade of Naboo', 'Battle of Geonosis', 'Battle of Yavin', 'Battle of Hoth', 'Battle of Endor']
-print(solution(SAMPLE1, SAMPLE2))
+sample1 = helper.shuffle_list(SAMPLE1)
+print(sample1, solution(sample1, SAMPLE2))
+
+
 
 
 # # Build tests
