@@ -2,11 +2,17 @@ import os
 import sys
 import random
 
-# dir struct
-WEEK_PRE = 'week'
 WEEK_NUM = '04' # Change accordingly
+WEEK_PRE = 'week'
+HERE = os.path.join(WEEK_PRE+WEEK_NUM,'src')
 
-TEST_DIR = os.path.join(os.path.join(WEEK_PRE+WEEK_NUM,'src'),'tests')
+WORDS = []
+with open(os.path.join(HERE,'dictionary.txt')) as dict_file:
+  for line in dict_file.readlines(): WORDS.append(line[:-1]) # Remove '\n'
+print(WORDS)
+
+# dir struct
+TEST_DIR = os.path.join(HERE,'tests')
 FILE_EXT = '.txt'
 
 INPUT_DIR = 'input'

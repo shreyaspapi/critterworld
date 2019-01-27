@@ -2,11 +2,24 @@ import os
 import datetime
 import helper
 from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_EXT
-PROBLEM_NUM = '04' # Change according to problem number in contest
+PROBLEM_NUM = '03' # Change according to problem number in contest
 
 # Solution
-def num_palindromes(string,variations):
-  pass
+def is_palindrome(string):
+  for i in range(len(string)//2):
+    if string[-(i+1)] != string[i]: return False
+  return True
+
+def make_palindrome(string,variations):
+  palindrome = list(string)
+  for i in range(variations):
+    if palindrome[-(i+1)] == palindrome[i]:
+      i-=1
+      continue
+    palindrome[-(i+1)] = palindrome[i]
+    string = ''.join(x for x in palindrome)
+    if is_palindrome(string): return string
+  return '-1'
 
 # Sample cases
 SAMPLE = []
@@ -22,15 +35,16 @@ fin.write(str(t)+'\n')
 TIME = []
 for i in range(t):
   # Inputs
-  length = helper.get_random(1,10,1000)
-  n = helper.get_random(1,1,min(100,length//2))
-  print(i,n,length)
-  alphabets = list(helper.get_random(length,1,26))
+  length = helper.get_random(1,10,20)
+  n = helper.get_random(1,length//4,length)
+  alphabets = list(helper.get_random(length//5,1,26))
+  alphabets = helper.shuffle_list(alphabets*5)
   string = ''.join([chr(96+x) for x in alphabets])
   # Result
   START = datetime.datetime.now()
-  res = num_palindromes(string,n)
+  res = make_palindrome(string,n)
   END = datetime.datetime.now()
+  print(i,n,length,res)
   TIME.append(END-START)
   # File write
   input_line = string + '\n' + str(n)
