@@ -31,10 +31,11 @@ def ParseNestedParen(string, level):
         return ParseNestedParen('(' + string, level)
 
     else:
-        return 'fail'
+        return 'Fail'
 
     return [string[LeftRightIndex[level][0]:LeftRightIndex[level][1]]]
 
+import string
 alpha_list = list(string.ascii_uppercase)
 
 def add(word1, word2):
@@ -107,8 +108,14 @@ def solution(expression):
 
 
 # Sample cases
-SAMPLE = []
-
+print()
+SAMPLE = [
+  '((a*c)+b)', '(a+c)', '(a-c)', '((a*c)+c)'
+]
+print('Sample output:')
+for sample in SAMPLE:
+  print(solution(sample))
+print()
 
 # Build tests
 fnum = input("Enter testfile num: ")

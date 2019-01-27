@@ -11,8 +11,8 @@ String P
 Integer n
 
 ## Constraints ##
-1 ≤ t ≤ 10^6
-1 ≤ |P| ≤ 1000
+1 ≤ t ≤ 2.5*10^6
+1 ≤ |P| ≤ 100
 1 ≤ n ≤ |P|/2
 
 ## Output Format ##

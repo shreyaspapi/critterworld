@@ -19,7 +19,7 @@ def position_finder(first, second, array):
 
 
 # Solution
-def solution(submitted_answer, correct_answer):
+def grade(submitted_answer, correct_answer):
   length = len(submitted_answer)
   ans = []
   for i in range(length):
@@ -33,10 +33,16 @@ def solution(submitted_answer, correct_answer):
   return max(ans)
 
 # Sample cases
-SAMPLE1 = ['Battle of Geonosis', 'Battle of Yavin', 'Battle of Hoth', 'Blockade of Naboo', 'Battle of Endor']
-SAMPLE2 = ['Blockade of Naboo', 'Battle of Geonosis', 'Battle of Yavin', 'Battle of Hoth', 'Battle of Endor']
-sample1 = helper.shuffle_list(SAMPLE1)
-print(sample1, solution(sample1, SAMPLE2))
+print()
+SAMPLE = [
+  ['Blockade of Naboo', 'Battle of Geonosis', 'Battle of Yavin', 'Battle of Hoth', 'Battle of Endor'],
+  ['Battle of Geonosis', 'Battle of Yavin', 'Battle of Hoth', 'Blockade of Naboo', 'Battle of Endor'],
+  ['Battle of Endor', 'Battle of Hoth', 'Battle of Yavin', 'Battle of Geonosis', 'Blockade of Naboo'],
+]
+print('Sample output:')
+for sample in SAMPLE[1:]:
+  print(grade(sample,SAMPLE[0]))
+print()
 
 # Build tests
 fnum = input("Enter testfile num: ")
