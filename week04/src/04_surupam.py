@@ -1,11 +1,21 @@
 '''
 ## Problem Statement ##
+A group of archaeologists were searching for treasure. Along the way, they faced many obstacles and overcame them all. However just before the last door, they find a stack of tablets with gibberish written on it. One non spaced word in the lowercase english alphabet per tablet.
+Heiroglyphics next to it revealed that the way to open the last door was to arrange the tablets so that the first letter of each tablet is the same as the last letter of each tablet. For now, the archaeologists wondered whether such a pattern is even possible. However, archaeologists are not that good in programming and hence have come to you for help.
+Given the words inscribed on each tablet, figure out whether such a pattern is possible or not.
 
 ## Input Format ##
+First line: t test cases
+Next 2t lines:
+n: number of tablets
+words: the words on the tablet separated by a single space
 
 ## Constraints ##
+1 ≤ t ≤ 10^5
+1 ≤ n ≤ 10^3
 
 ## Output Format ##
+'Y' or 'N'
 '''
 import os
 import datetime

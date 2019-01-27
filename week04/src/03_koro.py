@@ -31,16 +31,17 @@ def is_palindrome(string):
     if string[-(i+1)] != string[i]: return False
   return True
 
-def make_palindrome(string,variations):
-  palindrome = list(string)
-  for i in range(variations):
-    if palindrome[-(i+1)] == palindrome[i]:
-      i-=1
-      continue
-    palindrome[-(i+1)] = palindrome[i]
-    string = ''.join(x for x in palindrome)
-    if is_palindrome(string): return string
-  return '-1'
+# HELPP
+# def make_palindrome(string,additions):
+#   length,variations = len(string),0
+#   for i in range(length):
+#     if string[-(i+1)] == string[i]: continue
+#   palindrome = list(string)
+#   for i in range(variations):
+#     palindrome[-(i+1)] = palindrome[i]
+#     string = ''.join(x for x in palindrome)
+#     if is_palindrome(string): return string
+#   return '-1'
 
 # Sample cases
 SAMPLE = []
@@ -56,10 +57,10 @@ fin.write(str(t)+'\n')
 TIME = []
 for i in range(t):
   # Inputs
-  length = helper.get_random(1,10,20)
-  n = helper.get_random(1,length//4,length)
-  alphabets = list(helper.get_random(length//5,1,26))
-  alphabets = helper.shuffle_list(alphabets*5)
+  length = helper.get_random(1,10,1000)
+  n = helper.get_random(1,length//4,length//2)
+  alphabets = list(helper.get_random(length//10,1,26))
+  alphabets = helper.shuffle_list(alphabets*10)
   string = ''.join([chr(96+x) for x in alphabets])
   # Result
   START = datetime.datetime.now()

@@ -1,11 +1,29 @@
 '''
 ## Problem Statement ##
+Mary was a very smart woman. However, she was ahead of her time. She loved someone deeply but the society did not approve of her love. Being very smart, she still managed to send letters to her lover in a way that no one would be able to decipher them. She devised an encryption scheme and shared it with Jane. Now, Mary and Jane could communicate with each other without the worry of anyone finding out what they were saying.
+Here is how her encryption worked:
+- Mary took the content of her letter and wrote them vertically over n lines
+- She made n columns to form a square
+- She then rewrote the letter row wise and sent that to Jane
+- Jane repeated the procedure of arranging the content in a square
+- She then read the square row by row
+- Their love was now secure!
+Given a string s and an integer n, rearrange the string as described above. There are t test cases with the given constraints.
 
 ## Input Format ##
+First line: t test cases
+Next 2t lines:
+n: Size of the square
+s: The string to be encrypted
 
 ## Constraints ##
+1 ≤ t ≤ 10^5
+1 ≤ n ≤ 100
+|s| = n^2
+s will contain only uppercase letters and underscores (_)
 
 ## Output Format ##
+The encrypted string on a new line for every test case
 '''
 import os
 import datetime
