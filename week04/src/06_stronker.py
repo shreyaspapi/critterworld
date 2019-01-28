@@ -36,7 +36,7 @@ def ParseNestedParen(string, level):
     return [string[LeftRightIndex[level][0]:LeftRightIndex[level][1]]]
 
 import string
-alpha_list = list(string.ascii_uppercase)
+alpha_list = list(string.ascii_lowercase)
 
 def add(word1, word2):
   return word1+word2
@@ -52,27 +52,44 @@ def sub(word1, word2):
     word2_temp %= 26
   return alpha_list[(word1_temp - word2_temp) % 26]
 
+def word_num(word):
+  ans = 0
+  for i in word:
+    ans += alpha_list.index(i)
+    ans %= 26
+  return ans
 def mul(word1, word2):
-  return word1 * alpha_list.index(word2)
+  word2_num = word_num(word2)
+  return word1 * word2_num
 
 def find_depth(exp):
   num = 0
-  while ParseNestedParen(exp, num) != "Fail":
-    num += 1
-  return num
+  try:
+      while ParseNestedParen(exp, num) != "fail":
+          num += 1
+  except:
+      pass
+  return num-1
 
 def get_string(string, operand):
   pos = string.find(operand)
-  start = pos
+  start = pos-1
   end = pos
-  while (string[start] != "+") or (string[start] != "-") or (start != 0):
+  print("string", string)
+  while (start != 0) or (string[start] != "+") or (string[start] != "-"):
+    if start <= 0:
+      start = 0
+      break
     start -= 1
-  while (string[end] != "+") or (string[end] != "-") or (end != len(string)) or (string[end] != "*"):
+  while (end != len(string)) or (string[end] != "+") or (string[end] != "-") or (string[end] != "*"):
+    if end == len(string) - 1:
+      end = len(string)
+      break
     end += 1
   return (start, end)
 
 def do_operation(string, operand):
-  word1, word2 = string[:string.find("+")], string[string.find("+"):]
+  word1, word2 = string[:string.find(operand)], string[string.find(operand) + 1:]
   if operand == "+":
     return add(word1, word2)
   elif operand == "-":
@@ -85,32 +102,52 @@ def solution(expression):
   temp_exp = expression[:]
   depth = find_depth(expression)
   while depth:
-    string_to_work_on = ParseNestedParen(temp_exp, depth)
+    string_to_work_on = ParseNestedParen(temp_exp, depth)[0]
     ans = string_to_work_on
-    while "*" in string_to_work_on:
+    while "*" in ans:
       start, end = get_string(string_to_work_on, "*")
+      print("String to work on", string_to_work_on[start : end])
       slice_ans = do_operation(string_to_work_on[start : end], "*")
       ans = string_to_work_on.replace(string_to_work_on[start:end], slice_ans)
-    while "-" in string_to_work_on:
-      start, end = get_string(string_to_work_on, "-")
-      slice_ans = do_operation(string_to_work_on[start : end], "-")
-      ans = string_to_work_on.replace(string_to_work_on[start:end], slice_ans)
-    while "+" in string_to_work_on:
+    while "+" in ans:
       start, end = get_string(string_to_work_on, "+")
       slice_ans = do_operation(string_to_work_on[start : end], "+")
+      ans = string_to_work_on.replace(string_to_work_on[start:end], slice_ans)
+    while "-" in ans:
+      start, end = get_string(string_to_work_on, "-")
+      slice_ans = do_operation(string_to_work_on[start : end], "-")
       ans = string_to_work_on.replace(string_to_work_on[start:end], slice_ans)
     
     string_to_work_on = "(" + string_to_work_on + ")"
     temp_exp = temp_exp.replace(string_to_work_on, ans)
+    print("expression", temp_exp)
 
     depth -= 1
+  string_to_work_on = temp_exp
+  while "*" in temp_exp:
+    start, end = get_string(string_to_work_on, "*")
+    print("String to work on", string_to_work_on[start : end])
+    slice_ans = do_operation(string_to_work_on[start : end], "*")
+    temp_exp = string_to_work_on.replace(string_to_work_on[start:end], slice_ans)
+  while "+" in temp_exp:
+    start, end = get_string(string_to_work_on, "+")
+    slice_ans = do_operation(string_to_work_on[start : end], "+")
+    temp_exp = string_to_work_on.replace(string_to_work_on[start:end], slice_ans)
+  while "-" in temp_exp:
+    start, end = get_string(string_to_work_on, "-")
+    slice_ans = do_operation(string_to_work_on[start : end], "-")
+    temp_exp = string_to_work_on.replace(string_to_work_on[start:end], slice_ans)
+    
+  temp_exp = temp_exp.replace(string_to_work_on, ans)
+  print("expression", temp_exp)
+
   return temp_exp
 
 
 # Sample cases
 print()
 SAMPLE = [
-  '((a*c)+b)', '(a+c)', '(a-c)', '((a*c)+c)'
+  '((a*c)+b)'
 ]
 print('Sample output:')
 for sample in SAMPLE:
