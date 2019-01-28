@@ -34,6 +34,10 @@ def shuffle_list(lst):
   # shuffle replaces *in place*, use sample instead
   return random.sample(lst, len(lst))
 
+def shuffle_string(string):
+  lst = list(string)
+  return ''.join(str(x) for x in shuffle_list(lst))
+
 def first_last(words):
   first,last = [],[]
   for word in words:

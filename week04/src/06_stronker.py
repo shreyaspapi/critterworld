@@ -76,12 +76,12 @@ def get_string(string, operand):
   start = pos-1
   end = pos
   print("string", string)
-  while (start != 0) or (string[start] != "+") or (string[start] != "-"):
+  while (start != 0) or (string[start] != "+") or (string[start] != "-") or (string[start] != '('):
     if start <= 0:
       start = 0
       break
     start -= 1
-  while (end != len(string)) or (string[end] != "+") or (string[end] != "-") or (string[end] != "*"):
+  while (end != len(string)) or (string[end] != "+") or (string[end] != "-") or (string[end] != "*") or (string[end] != ')'):
     if end == len(string) - 1:
       end = len(string)
       break
@@ -147,7 +147,7 @@ def solution(expression):
 # Sample cases
 print()
 SAMPLE = [
-  '((a*c)+b)'
+  '((a*c)+b)', '((a*s)+b-c)'
 ]
 print('Sample output:')
 for sample in SAMPLE:
