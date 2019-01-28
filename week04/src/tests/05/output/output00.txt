@@ -1,3 +1,2 @@
-abcdhju
-0
-adkort
+3 2 2 2 2 2
+2 2 2 2

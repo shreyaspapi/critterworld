@@ -34,6 +34,10 @@ def shuffle_list(lst):
   # shuffle replaces *in place*, use sample instead
   return random.sample(lst, len(lst))
 
+def shuffle_string(string):
+  lst = list(string)
+  return ''.join(str(x) for x in shuffle_list(lst))
+
 def first_last(words):
   first,last = [],[]
   for word in words:
@@ -53,3 +57,5 @@ def get_unique_random(n,start,end):
 WORDS = []
 with open(os.path.join(HERE,'dictionary.txt')) as dict_file:
   for line in dict_file.readlines(): WORDS.append(line[:-1]) # Remove '\n'
+
+def reverse(string): return string[::-1]
