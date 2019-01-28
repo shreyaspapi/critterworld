@@ -12,8 +12,8 @@ solution n
 submissions * n separated by a single space
 
 ## Constraints ##
-1 ≤ t ≤ 10^4
-1 ≤ n ≤ 10^5
+1 ≤ t ≤ 1000
+1 ≤ n ≤ 100
 1 ≤ |solution| = |submission| ≤ 25
 
 ## Output Format ##
@@ -43,7 +43,9 @@ def grade(submitted_answers, correct_answer):
           flag += 1
           current = submitted_answer[j]
       ans.append(flag)
-      grades.append(max(ans))
+    grades.append(max(ans))
+  for i in range(len(grades)):
+    if grades[i]: grades[i]+=1
   return grades
 
 # Sample cases
@@ -70,17 +72,16 @@ for i in range(t):
   # Inputs
   length = helper.get_random(1,8,25)
   n = helper.get_random(1,1,100)
-  solution = ''.join([chr(96+x) for x in list(helper.get_random(length,1,26))])
+  solution = ''.join([chr(96+x) for x in list(helper.get_unique_random(length,1,26))])
   submissions = []
   for _ in range(n): submissions.append(helper.shuffle_string(solution))
-  print(solution,submissions,length,n)
   # Result
   START = datetime.datetime.now()
   res = grade(submissions,solution)
   END = datetime.datetime.now()
   TIME.append(END-START)
   # File write
-  print(i, res,len(res))
+  print(i, res)
   input_line = solution + ' ' + str(n) + '\n' + ' '.join(sub for sub in submissions)
   output_line = ' '.join(str(x) for x in res)
   if i+1<t:
