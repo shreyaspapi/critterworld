@@ -1,3 +1,4 @@
+import math
 # Functions
 def find_element_by_id_puttext(ID, text):
     element = driver.find_element_by_id(ID)
