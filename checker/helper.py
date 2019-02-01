@@ -1,3 +1,25 @@
+# Functions
+def find_element_by_id_puttext(ID, text):
+    element = driver.find_element_by_id(ID)
+    element.click()
+    element.send_keys(text)
+
+def click_using_element(something, ele):
+    if ele == "id":
+        element = driver.find_element_by_id(something)
+        element.click()
+    elif ele == "xpath":
+        element = driver.find_element_by_xpath(something)
+        element.click()
+
+def get_text(something, by):
+    if by == "id" or by == "ID":
+        text = driver.find_element_by_id(something).text
+        return text
+    elif by == "xpath":
+        text = driver.find_element_by_xpath(something).text
+        return text
+
 # Preprocessing data
 ACADEMIC_YEAR = '1819' # input('Enter academic year:') # 1617 | 1718 | 1819 | 1920
 SEMESTER_CODE = 'SP' # input('Enter sem code:') # FA | SP | Su | Wi
