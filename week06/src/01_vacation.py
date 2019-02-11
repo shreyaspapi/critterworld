@@ -36,7 +36,6 @@ fin.write(str(t)+'\n')
 TIME = []
 for i in range(t):
   # Inputs
-  n = helper.random()
   # Result
   START = datetime.datetime.now()
   res = solution()
