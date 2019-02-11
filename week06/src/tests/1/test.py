@@ -16,4 +16,5 @@ for i in range(1, 6):
                 y = random.randint(1, n)
             z = random.randint(1, 10**9)
             doc.write(str(x) + " " + str(y) + " " + str(z) + "\n")
+        
             
