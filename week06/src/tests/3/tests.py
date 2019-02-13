@@ -7,7 +7,7 @@ for i in range(1, 6):
     doc.write(str(t) + "\n")
     for _ in range(t):
         
-        n = random.randint(1, 1000)
+        n = random.randint(1, 200)
 
         h = random.randint(1, 24)
 

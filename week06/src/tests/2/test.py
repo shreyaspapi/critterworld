@@ -3,10 +3,10 @@ import random
 for i in range(1, 6):
     doc = open("{}.txt".format(i), "w")
     
-    t = random.randint(1, 5)
+    t = random.randint(1, 2)
     doc.write(str(t)+"\n")
     for _ in range(t):
-        n, q = random.randint(1, 10 ** 5), random.randint(1, 10**5)
+        n, q = random.randint(1, 10 ** 2), random.randint(1, 10**2)
         doc.write(str(n) + " " + str(q) + "\n")
         for _ in range(n-1):
             u, v = random.randint(1, n), random.randint(1, n)
