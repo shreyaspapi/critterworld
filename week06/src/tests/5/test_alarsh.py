@@ -6,7 +6,7 @@ for i in range(1, 6):
     t = random.randint(1, 10)
     doc.write(str(t) + "\n")
     for _ in range(t):
-        n = random.randint(2, 10**6)
+        n = random.randint(2, 10**2)
         m = random.randint(2, n)
         doc.write(str(n) + " " + str(m) + "\n")
 
