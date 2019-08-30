@@ -1,3 +1,5 @@
+UPDATE: Making repository public. Feel free to contribute. The current codebase is sort of shit lol im sorry. The repo was kinda abandoned after a couple of weeks and the schedule changed quite a bit. However, if time permits, sometime in the near future, would like to make an actual open "course" for a primer to competitive programming. Maybe host problems and stuff as well. We'll see.
+
 General Guidelines:
 - All files for a certain week are stored in the respective folder.
 - The zips within ./src/tests are the tests uploaded on hackerrank for the contest.
