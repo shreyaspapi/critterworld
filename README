@@ -1,3 +1,11 @@
+UPDATE 2: All cse212 files moved into folder. Renamed the project to critterworld. The plan is as follows:
+[] Build a critter world based on the descriptions in `/pdf`
+[] Design worlds to test and compare algorithms
+[] Build a portal for users to join and learn
+[] Update `/cse212` to reflect a traditional concept based course
+The plan is a simple four step process. I presume the entire project would take the remainder of this year and hence, the hard deadline is the end of 2020. A possible additional feature can be a grader as an accompaniment to the updated course.
+
+
 UPDATE: Making repository public. Feel free to contribute. The current codebase is sort of shit lol im sorry. The repo was kinda abandoned after a couple of weeks and the schedule changed quite a bit. However, if time permits, sometime in the near future, would like to make an actual open "course" for a primer to competitive programming. Maybe host problems and stuff as well. We'll see.
 
 General Guidelines:
