@@ -29,7 +29,7 @@ def make_chain(words):
   first,last = helper.first_last(sorted(words)) # Sorting important as taking from first word below
   ans = [first[0],last[0]]
   first, last = first[1:], last[1:]
-  for i in range(len(first)):
+  for item in first:
     if ans[-1] in first:
       index = first.index(ans[-1])
       ans.append(first[index])
@@ -42,7 +42,7 @@ def make_chain(words):
       first[index],last[index] = '',''
   for i in first:
     if i != '': return '0'
-  return ''.join(x for x in sorted(list(set(ans))))
+  return ''.join(iter(sorted(list(set(ans)))))
 
 
 # Sample cases
@@ -76,7 +76,7 @@ for i in range(t):
   TIME.append(END-START)
   # File write
   if res!='0': print(i,res)
-  input_line = str(len(words)) + '\n' + ' '.join(word for word in words)
+  input_line = str(len(words)) + '\n' + ' '.join(iter(words))
   output_line = res
   if i+1<t:
     input_line += '\n'

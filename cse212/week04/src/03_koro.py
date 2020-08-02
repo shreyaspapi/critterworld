@@ -30,7 +30,7 @@ def is_palindrome(string):
   return string==helper.reverse(string)
 
 def make_palindrome(string):
-  for i in range(0,len(string)):
+  for i in range(len(string)):
     if is_palindrome(string[i:]): 
       return string+helper.reverse(string[:i])
 
