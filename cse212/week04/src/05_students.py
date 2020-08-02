@@ -26,8 +26,7 @@ from helper import TEST_DIR, INPUT_DIR, OUTPUT_DIR, INPUT_PRE, OUTPUT_PRE, FILE_
 PROBLEM_NUM = '05' # Change according to problem number in contest
 
 def position_finder(first, second, array): 
-  if array.index(first) < array.index(second): return True
-  return False
+  return array.index(first) < array.index(second)
 
 # Solution
 def grade(submitted_answers, correct_answer):
@@ -44,8 +43,9 @@ def grade(submitted_answers, correct_answer):
           current = submitted_answer[j]
       ans.append(flag)
     grades.append(max(ans))
-  for i in range(len(grades)):
-    if grades[i]: grades[i]+=1
+  for grade_ in grades:
+    if grade_:
+      grade_ += 1
   return grades
 
 # Sample cases
@@ -73,8 +73,7 @@ for i in range(t):
   length = helper.get_random(1,8,25)
   n = helper.get_random(1,1,100)
   solution = ''.join([chr(96+x) for x in list(helper.get_unique_random(length,1,26))])
-  submissions = []
-  for _ in range(n): submissions.append(helper.shuffle_string(solution))
+  submissions = [helper.shuffle_string(solution) for _ in range(n)]
   # Result
   START = datetime.datetime.now()
   res = grade(submissions,solution)
@@ -82,7 +81,7 @@ for i in range(t):
   TIME.append(END-START)
   # File write
   print(i, res)
-  input_line = solution + ' ' + str(n) + '\n' + ' '.join(sub for sub in submissions)
+  input_line = solution + ' ' + str(n) + '\n' + ' '.join(iter(submissions))
   output_line = ' '.join(str(x) for x in res)
   if i+1<t:
     input_line += '\n'

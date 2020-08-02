@@ -37,8 +37,7 @@ def xgcd(a,b):
 def isPrime(n):
   for i in range(2,n):
     if n%i==0: return False
-  if n>1: return True
-  else: return False
+  return n>1
 
 def numDigits(n,count=0):
   if n>0: return numDigits(n//10,count+1)

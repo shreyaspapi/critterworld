@@ -72,7 +72,7 @@ for i in range(t):
   # File write
   # print(i,res)
   if res=='Y': print(i)
-  input_line = str(len(words)) + '\n' + ' '.join(word for word in words)
+  input_line = str(len(words)) + '\n' + ' '.join(iter(words))
   output_line = res
   if i+1<t:
     input_line += '\n'
